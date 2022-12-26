@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7062003f-20f4-4c67-963e-d670962b4d10" name="Changes" comment="Sout Collision Detection Done">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/simplegraphics.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameWeek.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/simplegraphics.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Cadet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Direction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Factory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/GameObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/MC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/MCs/CollisionDetection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Obstacles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/academiadecodigo/bootcamp/gameweek/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/Cadet_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/Cadet_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/Cadet_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/Cadet_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/MC_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/MC_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/MC_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Chars/MC_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/rscs/Map/blueprint_4777_2 copy.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="55e570c3bfcc6b762f40fcde5915fcb70fef9d96" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FtI3YMwerN4UCFx6CkLx4KTYiH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/codecadet/Desktop/GameWeek_V12/gameweek V8/src/org/academiadecodigo/bootcamp/gameweek&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek" />
+      <recent name="$PROJECT_DIR$/src/rscs/Map" />
+      <recent name="$PROJECT_DIR$/src/rscs/OtherPics" />
+      <recent name="$PROJECT_DIR$/src/rscs/BackGroundPics" />
+      <recent name="$PROJECT_DIR$/src/rscs/New Chars/GunMen" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/rscs/Chars" />
+      <recent name="$PROJECT_DIR$/src/rscs/Map" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.academiadecodigo.bootcamp.gameweek" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.academiadecodigo.bootcamp.gameweek" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.academiadecodigo.bootcamp.gameweek.Main" />
+      <module name="GameWeek" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.academiadecodigo.bootcamp.gameweek.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7062003f-20f4-4c67-963e-d670962b4d10" name="Changes" comment="" />
+      <created>1665304755894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665304755894</updated>
+      <workItem from="1665304757642" duration="13978000" />
+      <workItem from="1665388800981" duration="832000" />
+      <workItem from="1665394907844" duration="141000" />
+      <workItem from="1665406460932" duration="476000" />
+      <workItem from="1665418601050" duration="7527000" />
+      <workItem from="1665481378020" duration="457000" />
+      <workItem from="1665563138232" duration="1348000" />
+      <workItem from="1665575875937" duration="4718000" />
+      <workItem from="1665589105679" duration="8529000" />
+      <workItem from="1665768471283" duration="4985000" />
+      <workItem from="1665842609506" duration="17615000" />
+      <workItem from="1665919637095" duration="3787000" />
+      <workItem from="1665930096718" duration="10882000" />
+      <workItem from="1665943866119" duration="1957000" />
+    </task>
+    <task id="LOCAL-00001" summary="Sout Collision Detection Done">
+      <created>1665425494652</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665425494652</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sout Collision Detection Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sout Collision Detection Done" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

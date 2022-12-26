@@ -1,0 +1,295 @@
+Index: src/org/academiadecodigo/bootcamp/gameweek/MC.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.bootcamp.gameweek;\n\nimport org.academiadecodigo.bootcamp.gameweek.GameObject;\nimport org.academiadecodigo.bootcamp.gameweek.Position;\nimport org.academiadecodigo.simplegraphics.keyboard.Keyboard;\nimport org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;\nimport org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;\nimport org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\n\nimport static org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent.*;\nimport static org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType.KEY_PRESSED;\n\npublic class MC extends GameObject implements KeyboardHandler {\n    private Picture picture = new Picture(5, 5,\"src/rscs/Chars/MC_up.png\");\n    private int direction;\n    private int speed = 10;\n    private Keyboard keyboard = new Keyboard(this);\n\n    public MC(){\n        picture.draw();\n\n    }\n    public int getWidth(){\n        return picture.getWidth();\n    }\n\n    public int getHeight(){\n        return picture.getHeight();\n    }\n\n    public void init(){\n\n        KeyboardEvent right = new KeyboardEvent();\n        right.setKey(KEY_RIGHT);\n        right.setKeyboardEventType(KEY_PRESSED);\n        keyboard.addEventListener(right);\n\n        KeyboardEvent left = new KeyboardEvent();\n        left.setKey(KEY_LEFT);\n        left.setKeyboardEventType(KEY_PRESSED);\n        keyboard.addEventListener(left);\n\n        KeyboardEvent upPressed = new KeyboardEvent();\n        upPressed.setKey(KEY_UP);\n        upPressed.setKeyboardEventType(KEY_PRESSED);\n        keyboard.addEventListener(upPressed);\n\n        KeyboardEvent downPressed = new KeyboardEvent();\n        downPressed.setKey(KEY_DOWN);\n        downPressed.setKeyboardEventType(KEY_PRESSED);\n        keyboard.addEventListener(downPressed);\n\n\n    }\n\n    @Override\n    public void keyPressed(KeyboardEvent keyboardEvent) {\n        switch (keyboardEvent.getKey()){\n            case KEY_LEFT:\n                if(picture.getX() <= 0){\n                    break;\n                }\n                picture.translate(-speed,0);\n                picture.load(\"src/rscs/Chars/MC_left.png\");\n                break;\n            case KEY_RIGHT:\n                if(picture.getX() >= Map.getMapWidth()-85){\n                    break;\n                }\n                picture.translate(speed,0);\n                picture.load(\"src/rscs/Chars/MC_right.png\");\n                break;\n            case KEY_DOWN:\n                if(picture.getY() >= Map.getMapHeight()-90){\n                    break;\n                }\n                picture.translate(0,speed);\n                picture.load(\"src/rscs/Chars/MC_down.png\");\n                break;\n            case KEY_UP:\n                if(picture.getY() <= 0){\n                    break;\n                }\n                picture.translate(0,-speed);\n                picture.load(\"src/rscs/Chars/MC_up.png\");\n\n                break;\n\n        }\n    }\n\n    @Override\n    public void keyReleased(KeyboardEvent keyboardEvent) {\n\n    }\n\n    public Picture getPicture() {\n        return picture;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/bootcamp/gameweek/MC.java b/src/org/academiadecodigo/bootcamp/gameweek/MC.java
+--- a/src/org/academiadecodigo/bootcamp/gameweek/MC.java	
++++ b/src/org/academiadecodigo/bootcamp/gameweek/MC.java	
+@@ -12,21 +12,20 @@
+ import static org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType.KEY_PRESSED;
+ 
+ public class MC extends GameObject implements KeyboardHandler {
+-    private Picture picture = new Picture(5, 5,"src/rscs/Chars/MC_up.png");
++
+     private int direction;
+     private int speed = 10;
+     private Keyboard keyboard = new Keyboard(this);
+ 
+     public MC(){
+-        picture.draw();
+-
++        super(new Picture(5, 5,"src/rscs/Chars/MC_up.png"));getPicture().draw();
+     }
+     public int getWidth(){
+-        return picture.getWidth();
++        return getPicture().getWidth();
+     }
+ 
+     public int getHeight(){
+-        return picture.getHeight();
++        return getPicture().getHeight();
+     }
+ 
+     public void init(){
+@@ -58,32 +57,32 @@
+     public void keyPressed(KeyboardEvent keyboardEvent) {
+         switch (keyboardEvent.getKey()){
+             case KEY_LEFT:
+-                if(picture.getX() <= 0){
++                if(getPicture().getX() <= 0){
+                     break;
+                 }
+-                picture.translate(-speed,0);
+-                picture.load("src/rscs/Chars/MC_left.png");
++                getPicture().translate(-speed,0);
++                getPicture().load("src/rscs/Chars/MC_left.png");
+                 break;
+             case KEY_RIGHT:
+-                if(picture.getX() >= Map.getMapWidth()-85){
++                if(getPicture().getX() >= Map.getMapWidth()-85){
+                     break;
+                 }
+-                picture.translate(speed,0);
+-                picture.load("src/rscs/Chars/MC_right.png");
++                getPicture().translate(speed,0);
++                getPicture().load("src/rscs/Chars/MC_right.png");
+                 break;
+             case KEY_DOWN:
+-                if(picture.getY() >= Map.getMapHeight()-90){
++                if(getPicture().getY() >= Map.getMapHeight()-90){
+                     break;
+                 }
+-                picture.translate(0,speed);
+-                picture.load("src/rscs/Chars/MC_down.png");
++                getPicture().translate(0,speed);
++                getPicture().load("src/rscs/Chars/MC_down.png");
+                 break;
+             case KEY_UP:
+-                if(picture.getY() <= 0){
++                if(getPicture().getY() <= 0){
+                     break;
+                 }
+-                picture.translate(0,-speed);
+-                picture.load("src/rscs/Chars/MC_up.png");
++                getPicture().translate(0,-speed);
++                getPicture().load("src/rscs/Chars/MC_up.png");
+ 
+                 break;
+ 
+@@ -95,7 +94,10 @@
+ 
+     }
+ 
++    /*
+     public Picture getPicture() {
+         return picture;
+     }
++
++     */
+ }
+Index: src/org/academiadecodigo/bootcamp/gameweek/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.bootcamp.gameweek;\n\nimport org.academiadecodigo.bootcamp.gameweek.MCs.CollisionDetection;\nimport org.academiadecodigo.simplegraphics.graphics.Color;\nimport org.academiadecodigo.simplegraphics.graphics.Rectangle;\nimport org.academiadecodigo.simplegraphics.graphics.Text;\nimport org.academiadecodigo.simplegraphics.keyboard.Keyboard;\nimport org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;\nimport org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;\n\nimport static org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent.*;\nimport static org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent.KEY_1;\nimport static org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType.KEY_PRESSED;\n\npublic class Game implements KeyboardHandler {\n\n    private Cadet[] cadets = new Cadet[1];\n\n    private MC player = new MC();\n    private Map background;\n    private boolean enterNotPressed = true;\n\n    Keyboard keyboard = new Keyboard(this);\n\n    public Game(){\n\n    }\n\n    public void init(){\n        player.init();\n\n        KeyboardEvent enter = new KeyboardEvent();\n        enter.setKey(KEY_1);\n        enter.setKeyboardEventType(KEY_PRESSED);\n        keyboard.addEventListener(enter);\n\n    }\n\n    public void start() throws InterruptedException{\n\n        Text timer;\n        long timerValue;\n        long startTime = System.currentTimeMillis();\n        long stopTime;\n\n        for (int i = 0; i < cadets.length; i++) {\n            cadets[i] = new Cadet();\n        }\n        CollisionDetection detection = new CollisionDetection(player, cadets);\n\n        startMenu();\n\n        while (true) {\n            stopTime = System.currentTimeMillis();\n            timerValue = ((stopTime - startTime) / 1000);\n            timer = new Text(1720,30,\"Timer: \" + String.valueOf(timerValue) + \"s\");\n            timer.setColor(Color.BLACK);\n            timer.grow(20, 10);\n            timer.draw();\n            //System.out.println(\"Took : \" + ((stopTime - startTime) / 1000) + \"s\");\n            Thread.sleep(50);\n            moveAllCadets();\n            timer.delete();\n            if(detection.collision()){\n                gameOver(startTime); //apagar\n                break;\n            }\n\n        }\n\n\n\n    }\n\n    public void moveAllCadets(){\n        for (Cadet cadet : cadets){\n            cadet.move();\n        }\n    }\n\n    /**\n     Shows a Black Screen and the best time upon Collision\n     */\n    private void gameOver(long startTime){\n\n        //hide background;\n        //background.getBackground().delete();\n        //hide player\n        player.getPicture().delete();\n        //hide all cadets\n        for (Cadet cadet : cadets){\n            cadet.getPicture().delete();\n        }\n\n        long stopTime2 = System.currentTimeMillis();\n\n        //black screen\n        Rectangle gameOverScreen = new Rectangle(0, 0, Map.getMapWidth(),Map.getMapHeight());\n        gameOverScreen.setColor(Color.BLACK);\n\n        //game over text\n        Text gameOver = new Text(Map.getMapWidth()/2,Map.getMapHeight()/2-20, \"GAME OVER\");\n        gameOver.setColor(Color.WHITE);\n        gameOver.grow(100,50);\n\n        //best time text\n        Text bestTime = new Text(Map.getMapWidth()/2 -20,Map.getMapHeight()/2 + 70,\"Best Time : \"+String.valueOf((stopTime2 - startTime)/1000)+\"s\");\n        bestTime.setColor(Color.WHITE);\n        bestTime.grow(50,25);\n\n        //show black screen, game over and best time (score)\n        gameOverScreen.fill();\n        gameOver.draw();\n        bestTime.draw();\n\n    }\n\n    private void startMenu(){\n\n        //black screen\n        Rectangle menuScreen = new Rectangle(0, 0, Map.getMapWidth(),Map.getMapHeight());\n        menuScreen.setColor(Color.BLACK);\n\n\n        //game name\n        Text startGame = new Text(Map.getMapWidth()/2 -20,Map.getMapHeight()/2 + 70,\"Press 1 to start game.\");\n        startGame.setColor(Color.WHITE);\n        startGame.grow(50,25);\n\n\n        //'press enter to start' text\n        Text gameName = new Text(Map.getMapWidth()/2,Map.getMapHeight()/2-20, \"BRAINS\");\n        gameName.setColor(Color.WHITE);\n        gameName.grow(100,50);\n\n\n        while(enterNotPressed){\n            menuScreen.fill();\n            startGame.draw();\n            gameName.draw();\n            //System.out.println(\"Press 1 to start\");\n        }\n\n\n\n        //System.out.println(\"SIMM\");\n        menuScreen.delete();\n        gameName.delete();\n        startGame.delete();\n    }\n\n    @Override\n    public void keyPressed(KeyboardEvent keyboardEvent) {\n        if (keyboardEvent.getKey() == KEY_1) {\n            enterNotPressed = false;\n        }\n    }\n\n    @Override\n    public void keyReleased(KeyboardEvent keyboardEvent) {\n\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/bootcamp/gameweek/Game.java b/src/org/academiadecodigo/bootcamp/gameweek/Game.java
+--- a/src/org/academiadecodigo/bootcamp/gameweek/Game.java	
++++ b/src/org/academiadecodigo/bootcamp/gameweek/Game.java	
+@@ -46,7 +46,7 @@
+         for (int i = 0; i < cadets.length; i++) {
+             cadets[i] = new Cadet();
+         }
+-        CollisionDetection detection = new CollisionDetection(player, cadets);
++        //CollisionDetection detection = new CollisionDetection(player, cadets);
+ 
+         startMenu();
+ 
+@@ -61,7 +61,7 @@
+             Thread.sleep(50);
+             moveAllCadets();
+             timer.delete();
+-            if(detection.collision()){
++            if(player.collision(cadets)){
+                 gameOver(startTime); //apagar
+                 break;
+             }
+Index: src/org/academiadecodigo/bootcamp/gameweek/Cadet.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.bootcamp.gameweek;\n\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\n\npublic class Cadet extends GameObject {\n    //private Position position = new Position();\n    private Picture picture;\n    private Direction direction;\n    private int speed = 5;\n    private int numberOfMoves = 0;\n\n    public Cadet (){\n        int spawnLocation = ((int)(Math.ceil(Math.random() * 2)));\n        if (spawnLocation == 1){\n            picture = new Picture(-50, 550,\"src/rscs/Chars/Cadet_right.png\");\n            setDirection(Direction.RIGHT);\n        } else {\n            picture = new Picture(1750, 550, \"src/rscs/Chars/Cadet_left.png\");\n            setDirection(Direction.LEFT);\n        }\n        picture.draw();\n    }\n\n    public void move(){\n        if (numberOfMoves < 20) {\n            switch (direction) {\n                case UP:\n                    if (picture.getY() <= speed) {\n                        setDirection(Direction.DOWN);\n                        return;\n                    }\n                    picture.load(\"src/rscs/Chars/Cadet_up.png\");\n                    picture.translate(0, (-1 * speed));\n                    break;\n                case DOWN:\n                    if (picture.getY() >= (600 - speed - 20)) {\n                        setDirection(Direction.UP);\n                        return;\n                    }\n                    picture.load(\"src/rscs/Chars/Cadet_down.png\");\n                    picture.translate(0, speed);\n                    numberOfMoves++;\n                    break;\n                case LEFT:\n                    if (picture.getX() <= speed) {\n                        setDirection(Direction.RIGHT);\n                        return;\n                    }\n                    picture.load(\"src/rscs/Chars/Cadet_left.png\");\n                    picture.translate((-1 * speed), 0);\n                    numberOfMoves++;\n                    break;\n                case RIGHT:\n                    if (picture.getX() >= (1750 - speed)) {\n                        setDirection(Direction.LEFT);\n                        return;\n                    }\n                    picture.load(\"src/rscs/Chars/Cadet_right.png\");\n                    picture.translate(speed, 0);\n                    numberOfMoves++;\n                    break;\n                default:\n                    if (picture.getY() <= speed) {\n                        setDirection(Direction.DOWN);\n                        return;\n                    }\n                    picture.load(\"src/rscs/Chars/Cadet_up.png\");\n                    picture.translate(0, (-1 * speed));\n                    numberOfMoves++;\n                    break;\n\n            }\n        } else {\n            numberOfMoves = 0;\n            setDirection();\n            return;\n        }\n    }\n\n    public void setDirection(){\n        Direction newDirection = Direction.values()[(int)(Math.random() * Direction.values().length)];\n        direction = newDirection;\n    }\n    public void setDirection(Direction newDirection){\n        direction = newDirection;\n    }\n\n    public Picture getPicture() {\n        return picture;\n    }\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java b/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java
+--- a/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java	
++++ b/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java	
+@@ -4,68 +4,62 @@
+ 
+ public class Cadet extends GameObject {
+     //private Position position = new Position();
+-    private Picture picture;
+     private Direction direction;
+     private int speed = 5;
+     private int numberOfMoves = 0;
+ 
+-    public Cadet (){
+-        int spawnLocation = ((int)(Math.ceil(Math.random() * 2)));
+-        if (spawnLocation == 1){
+-            picture = new Picture(-50, 550,"src/rscs/Chars/Cadet_right.png");
+-            setDirection(Direction.RIGHT);
+-        } else {
+-            picture = new Picture(1750, 550, "src/rscs/Chars/Cadet_left.png");
+-            setDirection(Direction.LEFT);
+-        }
+-        picture.draw();
++    public Cadet(){
++        super(Factory.newCadet());
++        direction = Direction.UP;
++        getPicture().draw();
++
+     }
+ 
+     public void move(){
+         if (numberOfMoves < 20) {
+             switch (direction) {
+                 case UP:
+-                    if (picture.getY() <= speed) {
++                    if (getPicture().getY() <= speed) {
+                         setDirection(Direction.DOWN);
+                         return;
+                     }
+-                    picture.load("src/rscs/Chars/Cadet_up.png");
+-                    picture.translate(0, (-1 * speed));
++                    getPicture().load("src/rscs/Chars/Cadet_up.png");
++                    getPicture().translate(0, (-1 * speed));
+                     break;
+                 case DOWN:
+-                    if (picture.getY() >= (600 - speed - 20)) {
++                    if (getPicture().getY() >= (600 - speed - 20)) {
+                         setDirection(Direction.UP);
+                         return;
+                     }
+-                    picture.load("src/rscs/Chars/Cadet_down.png");
+-                    picture.translate(0, speed);
++                    getPicture().load("src/rscs/Chars/Cadet_down.png");
++                    getPicture().translate(0, speed);
+                     numberOfMoves++;
+                     break;
+                 case LEFT:
+-                    if (picture.getX() <= speed) {
++                    if (getPicture().getX() <= speed) {
+                         setDirection(Direction.RIGHT);
+                         return;
+                     }
+-                    picture.load("src/rscs/Chars/Cadet_left.png");
+-                    picture.translate((-1 * speed), 0);
++                    getPicture().load("src/rscs/Chars/Cadet_left.png");
++                    getPicture().translate((-1 * speed), 0);
+                     numberOfMoves++;
+                     break;
+                 case RIGHT:
+-                    if (picture.getX() >= (1750 - speed)) {
++                    if (getPicture().getX() >= (1750 - speed)) {
+                         setDirection(Direction.LEFT);
+                         return;
+                     }
+-                    picture.load("src/rscs/Chars/Cadet_right.png");
+-                    picture.translate(speed, 0);
++                    getPicture().load("src/rscs/Chars/Cadet_right.png");
++                    getPicture().translate(speed, 0);
+                     numberOfMoves++;
+                     break;
+                 default:
+-                    if (picture.getY() <= speed) {
++                    if (getPicture().getY() <= speed) {
+                         setDirection(Direction.DOWN);
+                         return;
+                     }
+-                    picture.load("src/rscs/Chars/Cadet_up.png");
+-                    picture.translate(0, (-1 * speed));
++                    getPicture().load("src/rscs/Chars/Cadet_up.png");
++                    getPicture().translate(0, (-1 * speed));
+                     numberOfMoves++;
+                     break;
+ 
+@@ -85,9 +79,6 @@
+         direction = newDirection;
+     }
+ 
+-    public Picture getPicture() {
+-        return picture;
+-    }
+ }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7062003f-20f4-4c67-963e-d670962b4d10\" name=\"Changes\" comment=\"Sout Collision Detection Done\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/MC.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/MC.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2FtI3YMwerN4UCFx6CkLx4KTYiH\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n    <option name=\"showMembers\" value=\"true\" />\n    <option name=\"showVisibilityIcons\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/codecadet/Desktop/MyGameWeek/gameweek&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/rscs/Map\" />\n      <recent name=\"$PROJECT_DIR$/src/rscs\" />\n      <recent name=\"$PROJECT_DIR$/src/rscs/Chars\" />\n      <recent name=\"$PROJECT_DIR$/rscs\" />\n      <recent name=\"$PROJECT_DIR$/libs\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/rscs/Map\" />\n      <recent name=\"$PROJECT_DIR$/src\" />\n    </key>\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"org.academiadecodigo.bootcamp.gameweek\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"org.academiadecodigo.bootcamp.gameweek\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.academiadecodigo.bootcamp.gameweek.Main\" />\n      <module name=\"GameWeek\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"org.academiadecodigo.bootcamp.gameweek.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7062003f-20f4-4c67-963e-d670962b4d10\" name=\"Changes\" comment=\"\" />\n      <created>1665304755894</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1665304755894</updated>\n      <workItem from=\"1665304757642\" duration=\"13978000\" />\n      <workItem from=\"1665388800981\" duration=\"832000\" />\n      <workItem from=\"1665394907844\" duration=\"141000\" />\n      <workItem from=\"1665406460932\" duration=\"476000\" />\n      <workItem from=\"1665418601050\" duration=\"7527000\" />\n      <workItem from=\"1665481378020\" duration=\"457000\" />\n      <workItem from=\"1665563138232\" duration=\"1348000\" />\n      <workItem from=\"1665575875937\" duration=\"4718000\" />\n      <workItem from=\"1665589105679\" duration=\"8647000\" />\n      <workItem from=\"1665649310694\" duration=\"2191000\" />\n      <workItem from=\"1665666012463\" duration=\"1975000\" />\n      <workItem from=\"1665673767171\" duration=\"496000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Sout Collision Detection Done\">\n      <created>1665425494652</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1665425494652</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Sout Collision Detection Done\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Sout Collision Detection Done\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -7,6 +7,9 @@
+     <list default="true" id="7062003f-20f4-4c67-963e-d670962b4d10" name="Changes" comment="Sout Collision Detection Done">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Cadet.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Factory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/Game.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/GameObject.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/MC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/bootcamp/gameweek/MC.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -42,21 +45,21 @@
+     <option name="showMembers" value="true" />
+     <option name="showVisibilityIcons" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/codecadet/Desktop/MyGameWeek/gameweek&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "/Users/codecadet/Desktop/MyGameWeek/gameweek",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/src/rscs/Map" />
+@@ -115,7 +118,8 @@
+       <workItem from="1665589105679" duration="8647000" />
+       <workItem from="1665649310694" duration="2191000" />
+       <workItem from="1665666012463" duration="1975000" />
+-      <workItem from="1665673767171" duration="496000" />
++      <workItem from="1665673767171" duration="8882000" />
++      <workItem from="1665684861930" duration="43000" />
+     </task>
+     <task id="LOCAL-00001" summary="Sout Collision Detection Done">
+       <created>1665425494652</created>
